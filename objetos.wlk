@@ -21,7 +21,7 @@ object lionel {
 	
 	method patear() {
 		if(self.position() == bocha.position()){
-			bocha.position(game.at(position.x() + 3.min(game.width() - 1), position.y()))
+			bocha.position(game.at((position.x() + 3).min(game.width() - 1), position.y()))
 		}
 	}
 }

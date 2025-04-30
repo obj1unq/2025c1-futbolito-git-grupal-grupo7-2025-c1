@@ -2,6 +2,8 @@
 import wollok.game.*
 
 object lionel {
+
+	var property bocha = pelota
 	
 	var property position = game.at(3,5)
 	
@@ -17,6 +19,11 @@ object lionel {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
 	
+	method patear() {
+		if(self.position() == bocha.position()){
+			bocha.position(game.at(position.x() + 3.min(game.width() - 1), position.y()))
+		}
+	}
 }
 
 

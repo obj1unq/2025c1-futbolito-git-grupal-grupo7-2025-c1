@@ -1,0 +1,20 @@
+import wollok.game.*
+import objetos.*
+
+describe "test de futbol" {
+    method initialize(){
+		game.width(15)
+		game.height(10)
+	
+	}
+
+	test "lionel empieza donde esta la pelota"{
+		assert.notEquals(lionel.position(), pelota.position())
+    }
+	
+	test "taquito"{
+		const posicionInicialPelota = pelota.position()
+	    assert.throwsException({lionel.taquito()})
+        assert.equals(posicionInicialPelota, pelota.position())
+	}
+}   

@@ -22,12 +22,12 @@ object lionel {
 	}
 
 	method taquito(){
-		self.validarPosicion(bocha.position())
+		self.validarPosicionBocha()
 		bocha.position(game.at(0.max(position.x() - 2), position.y()))
 	}
 
-	method validarPosicion(posBocha) {
-		if (position != posBocha){
+	method validarPosicionBocha() {
+		if (position != bocha.position()){
 			self.error ("No esta la pelota")
 		}
 	}

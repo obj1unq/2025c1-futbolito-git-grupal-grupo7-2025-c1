@@ -5,11 +5,16 @@ describe "test de futbol" {
     method initialize(){
 		game.width(15)
 		game.height(10)
+	
 	}
 
+	test "lionel empieza donde esta la pelota"{
+		assert.notEquals(lionel.position(), pelota.position())
+    }
+	
 	test "taquito"{
-		assert.equeals{Lionel.position(), pelota.position()}
-        lionel.taquito
-        assert.notEqueals{Lionel.position(), pelota.position()}
+		const posicionInicialPelota = pelota.position()
+	    assert.throwsException({lionel.taquito()})
+        assert.equals(posicionInicialPelota, pelota.position())
 	}
 }   

@@ -27,9 +27,21 @@ object lionel {
 	}
 
 	method validarPosicionBocha() {
-		if (position != bocha.position()){
-			self.error ("No esta la pelota")
+		if (!self.tieneLaPelota()){
+			self.error ("Lionel no esta en la misma posicion que la pelota")
 		}
+	}
+
+	method tieneLaPelota() {
+		return position == bocha.position()
+	}
+
+	method levantarla(){
+		self.validarPosicionBocha()
+		bocha.subir(1)
+		game.schedule(2000, {
+			bocha.bajar(1)
+		})
 	}
 }
 
@@ -44,4 +56,18 @@ object pelota {
 	method irAlInicio(){
 		position = game.at(0, 5)
 	}
+
+	method subir(altura){
+		position = self.moverVertical(altura)
+	}
+
+	method bajar(altura){
+		position = self.moverVertical(-altura)
+	}
+
+	method moverVertical(y) {
+		return game.at(position.x(), position.y() + y)
+	}
+
+
 }
